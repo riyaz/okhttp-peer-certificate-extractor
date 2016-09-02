@@ -31,6 +31,12 @@ Enabling okhttp certificate pinning is now made the following way:
                 .build();
 ~~~
 
+## Command line alternative
+
+~~~bash
+ openssl s_client -connect api.github.com:443 | openssl x509 -pubkey -noout | openssl rsa -pubin -outform der | openssl dgst -sha256 -binary | openssl enc -base64
+
+~~~
 
 License
 -------
